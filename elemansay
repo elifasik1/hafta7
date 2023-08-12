@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+	int date;
+	struct node *next;
+};
+typedef struct node *NODEPTR;
+NODEPTR top=NULL;
+NODEPTR temp;
+
+int counter=0;
+
+int elemansay()
+{
+	temp=top;
+	if(top==NULL){
+		return;
+	}
+	else
+	{
+		while(temp->next!=NULL){
+			counter++;
+			temp=temp->next;
+		}
+		counter++;
+	}
+	return counter;
+}
+
+
+
+
+
+
+
+
+int main() {
+	int sayi;
+	sayi=elemansay();
+	printf("%d",sayi);
+    
+    return 0;
+}
