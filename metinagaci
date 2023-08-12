@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+void findWordsStartingWith(char** words, int numWords, char* prefix) {
+    int i;
+    int len = strlen(prefix);
+    
+    for (i = 0; i < numWords; i++) {
+        if (strncmp(words[i], prefix, len) == 0) {
+            printf("%s\n", words[i]);
+        }
+    }
+}
+
+int main() {
+    char* words[] = {"apple", "application", "banana", "art", "ball"};
+    int numWords = sizeof(words) / sizeof(words[0]);
+    char* prefix = "app";
+    
+    findWordsStartingWith(words, numWords, prefix);
+    
+    return 0;
+}
