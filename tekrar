@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void findDuplicates(int arr[], int size) {
+    printf("Tekrar eden elemanlar: ");
+    int i,j,k;
+    for (i = 0; i < size; i++) {
+        for (j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                int isDuplicate = 0;
+                
+                for ( k = i - 1; k >= 0; k--) {
+                    if (arr[k] == arr[i]) {
+                        isDuplicate = 1;
+                        break;
+                    }
+                }
+                if (!isDuplicate) {
+                    printf("%d ", arr[i]);
+                }
+                break; 
+            }
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {4, 2, 5, 4, 5, 7, 8, 8, 9};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    findDuplicates(arr, size);
+    
+    return 0;
+}
